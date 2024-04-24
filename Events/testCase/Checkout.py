@@ -19,10 +19,12 @@ class Checkout(EventAutomation):
     def __init__(self):
         super().__init__()
 
-    def eve_200(self, url):
+
+
+    def eve_207(self, url):
         self.request_func(url)
         # Add To Cart
-        add_to_cart = "//*[@id='eve_38']"
+        add_to_cart = "//*[@class='rpt_btn rpt_white_btn cart-btn']"
         self.element_hover(add_to_cart)
         self.finds_elements(add_to_cart)
         # Live Chat
@@ -31,104 +33,70 @@ class Checkout(EventAutomation):
         click_On_Checkout = "(//*[@id='eve_294'])"
         self.finds_elements(click_On_Checkout)
         # Shipping Information
-
-        # Email Adress
+        # Email Id
         email_Address = "(//*[@id='customer-email'])"
         self.finds_elements(email_Address, 'shubham@raptorsupplies.co.uk')
-        # FirstName
-        first_Name = "(//*[@id='Q4IMHXH'])"
-        self.finds_elements(first_Name, 'xyz')
-        # lastName
-        last_Name = "(//*[@id='Q9QAKNJ'])"
-        self.finds_elements(last_Name, 'kumar')
-        # CompanyName
-        company_Name = "(//*[@id='KA9R6BD'])"
+        # First Name
+        first_Name = "(//*[@name='firstname'])"
+        self.finds_elements(first_Name, 'Automation')
+        # Last Name
+        last_Name = "(//*[@name='lastname'])"
+        self.finds_elements(last_Name, 'Testing')
+        # Company Name
+        company_Name = "(//*[@name='company'])"
         self.finds_elements(company_Name, 'Raptor')
         # Address
-        address = "(//*[@id='PBXV0M4'])"
-        self.finds_elements(address, 'UK')
+        address = "(//*[@name='street[0]'])"
+        self.finds_elements(address, 'India')
         # City_Name
-        city_Name = "(//*[@id='NPE9FI7'])"
+        city_Name = "(//*[@name='city'])"
         self.finds_elements(city_Name, 'abc')
-        # Country_Name
-        country_Name = "(//*[@id='GWREGT5'])"
-        self.finds_elements(city_Name, 'abc')
-        # PostalCode
-        postal_Code = "(//*[@id='FQG53BW'])"
+        # Country dropdown
+        country_Dropdown = "(//*[@name='country_id'])"
+        self.finds_elements(country_Dropdown, 'India')
+        # State dropdown
+        # state_Or_Province="(//*[@name='region_id'])"
+        # self.finds_elements(state_Or_Province,'Goa')
+        # Postal code
+        postal_Code = "(//*[@name='postcode'])"
         self.finds_elements(postal_Code, 123456)
-        # Phone_Number
-        phone_number = "(//*[@id='NETQR7E'])"
+        # Contact number
+        phone_number = "(//*[@name='telephone'])"
         self.finds_elements(phone_number, 1234567890)
-        # ContinueButton
+        # Click on continue or submit
         click_On_continue = "(//*[@id='eve_200'])"
         self.finds_elements(click_On_continue)
+        # Express 5 to 7 days
+        express_Clicking = "(//*[@id='s_method_matrixrate_matrixrate_6175'])"
+        self.finds_elements(express_Clicking)
+        # Process_Payment
+        click_On_Payment = "(//*[@id='proceed_payment'])"
+        self.finds_elements(click_On_Payment)
+        # select payment mode
+        net_payment = "(//*[@id='tooltip_banktransfer'][1])"
+        self.finds_elements(net_payment)
+        purschase_no = "(//*[@id='eve_209'])"
+        self.finds_elements(purschase_no, 6547685)
+        net_payment_Checkbox = "(//*[@id='net_check'])"
+        self.finds_elements(net_payment_Checkbox)
+        # Click on Place order
+        # place_Order="(//*[@id='net_real'])"
+        # self.finds_elements(place_Order)
+        print("Successfully done!!!!!")
 
         self.print_visitor_id()
         con = "BPN"
-        val1 = 'Email'
+        val1 = 'Subtotal with Currency'
         val2 = ''
-        eve_id = '200'
-        self.report_genrate(self.print_visitor_id(), con, val1, val2, eve_id)
-
-    def eve_202(self, url):
-        self.request_func(url)
-        # Add To Cart
-        add_to_cart = "//*[@id='eve_38']"
-        self.element_hover(add_to_cart)
-        self.finds_elements(add_to_cart)
-        # Live Chat
-        self.chat_box_close()
-        # CheckOut Option
-        click_On_Checkout = "(//*[@id='eve_294'])"
-        self.finds_elements(click_On_Checkout)
-        # Shipping Information
-        # Email Adress
-        email_Address = "(//*[@id='customer-email'])"
-        self.finds_elements(email_Address, 'shubham@raptorsupplies.co.uk')
-        # FirstName
-        first_Name = "(//*[@id='Q4IMHXH'])"
-        self.finds_elements(first_Name, 'xyz')
-        # lastName
-        last_Name = "(//*[@id='Q9QAKNJ'])"
-        self.finds_elements(last_Name, 'kumar')
-        # CompanyName
-        company_Name = "(//*[@id='KA9R6BD'])"
-        self.finds_elements(company_Name, 'Raptor')
-        # Address
-        address = "(//*[@id='PBXV0M4'])"
-        self.finds_elements(address, 'UK')
-        # City_Name
-        city_Name = "(//*[@id='NPE9FI7'])"
-        self.finds_elements(city_Name, 'abc')
-        # Country_Name
-        country_Name = "(//*[@id='GWREGT5'])"
-        self.finds_elements(city_Name, 'abc')
-        # PostalCode
-        postal_Code = "(//*[@id='FQG53BW'])"
-        self.finds_elements(postal_Code, 123456)
-        # Phone_Number
-        phone_number = "(//*[@id='NETQR7E'])"
-        self.finds_elements(phone_number, 1234567890)
-        # ContinueButton
-        click_On_continue = "(//*[@id='eve_200'])"
-        self.finds_elements(click_On_continue)
-        # Express_Option
-        express_Clicking = "(//*[@class='row shipping_info_label rpt-radio'])"
-        self.finds_elements(express_Clicking)
-        # Process_Payment
-        self.print_visitor_id()
-        con = "BP"
-        val1 = '#Freight Amount'
-        val2 = ''
-        eve_id = '201'
+        eve_id = '207'
         self.report_genrate(self.print_visitor_id(), con, val1, val2, eve_id)
 
 
 def run_program():
     program_dict = {
 
-        'eve_200': 'eve_200("https://stage.raptorsupplies.com/pd/morse-drum/91")',
-        'eve_202': 'eve_200("https://stage.raptorsupplies.com/pd/morse-drum/91")',
+        'eve_200': 'eve_200("https://www.raptorsupplies.com/pd/morse-drum/91")',
+        'eve_207': 'eve_207("https://www.raptorsupplies.com/pd/morse-drum/91")',
 
     }
 
@@ -145,6 +113,6 @@ def run_program():
     testing.driver_quit()
 
 
-keys_to_run = ['eve_179']
+keys_to_run = ['eve_207']
 
 run_program()

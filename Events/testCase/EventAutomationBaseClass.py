@@ -166,32 +166,6 @@ class EventAutomation:
             print(ex)
         pass
 
-    def tagmanager_calls(self, test_url):
-        try:
-            self.driver.get(tag_manage_url)
-            time.sleep(5)
-            # self.finds_elements('//*[@id="identifierId"]', 'rksingh@nextgenesolutions.com')
-            self.finds_elements('//*[@id="identifierId"]', 'nkmishra.raptor@gmail.com')
-            self.finds_elements('//*[@id="identifierNext"]/div/button')
-            self.finds_elements("//input[@name='Passwd']", password)
-            self.finds_elements("//span[normalize-space()='Next']")
-            # self.finds_elements("(//a[contains(text(),'staging.raptorsupplies.com')])[2]")
-            self.finds_elements("//a[normalize-space()='Raptor Supplies Worldwide (.com)']")
-            self.finds_elements("//button[normalize-space()='Preview']")
-            self.driver.switch_to.window(self.driver.window_handles[1])
-            self.finds_elements('//*[@id="domain-start-url"]', test_url)
-            self.finds_elements('//*[@id="domain-start-button"]')
-            self.driver.switch_to.window(self.driver.current_window_handle)
-            self.finds_elements("//button[normalize-space()='Continue']")
-            self.driver.switch_to.window(self.driver.window_handles[-1])
-            try:
-                self.chat_box_close()
-            except TimeoutException:
-                pass
-            self.tagmanager_popup_move()
-        except Exception as e:
-            print(e)
-            self.driver.quit()
 
     def save_output(self, filename='output'):
         self.driver.switch_to.window(self.driver.window_handles[1])
